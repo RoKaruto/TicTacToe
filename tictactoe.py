@@ -2,13 +2,11 @@ import random
 import datetime as dt
 
 pos_per_line = 3    # line length of tic tac toe grid
-
-# board = [[f"{choice(['X','O', ' '])}" for x in range(pos_per_line)] for y in range(pos_per_line)]
 board = [[" " for y in range(pos_per_line)] for x in range(pos_per_line)]
-# board = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
 
 
 def show_board(bo):
+    """text based visualization of playing field"""
     for x in range(pos_per_line):
         for y in range(pos_per_line):
             if y < pos_per_line-1:
@@ -161,7 +159,7 @@ def computer_move(letter: [str] = "O"):
         board[pos_per_line - 1][pos_per_line - 1] = letter
         return
 
-    # take the random empty field
+    # take any random empty field
     else:
         random_field = random.randint(0, len(possible_moves)-1)
         board[possible_moves[random_field][0]][possible_moves[random_field][1]] = letter
